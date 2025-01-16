@@ -50,7 +50,6 @@ const colors = {
 };
 
 function MainComponent() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [showScrollTop, setShowScrollTop] = useState(false);
 
   // 各セクションのIntersectionObserverを設定
@@ -103,7 +102,6 @@ function MainComponent() {
     const element = document.getElementById(sectionId);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
-      setIsMenuOpen(false);
     }
   };
 
@@ -111,9 +109,8 @@ function MainComponent() {
   const concerns = [
     "産後、低単価サロンなら簡単だと思い入社",
     "教育時間は営業時間外で疲弊💦即戦力として求められる💦",
-    "自信がないまま、1人で5〜7名をこなさなければならず疲弊💦子どもが発熱、予約を代わってもらえず無理やり保育園へ入れる毎日💦",
-    "現状）仕事をこなすことに精一杯で駒のように感じる💦",
-    
+    "自信がないまま、1人で5〜7名をこなさなければならず疲弊💦\n子どもが発熱、予約を代わってもらえず無理やり保育園へ入れる毎日💦",
+    "仕事をこなすことに精一杯で駒のように感じる💦",
   ];
 
   const concernRefs = concerns.map(() => useInView({
@@ -138,7 +135,7 @@ function MainComponent() {
     const requirements = [
       {
         main: "仕事と家庭を両立したい方",
-        sub: "家庭が一番なので、仕事よりも家族を優先にしたい方"
+        sub: "家庭が一番なので、仕事よりも家族を優先したい方"
       },
       {
         main: "無理なく生涯現役で美容師を続けたい方",
@@ -204,12 +201,12 @@ function MainComponent() {
             ))}
           </div>
 
-          <div className="flex flex-row gap-4 justify-center mt-12">
-            <button className="bg-[#e24a4a] text-white px-6 py-3 rounded-full hover:bg-[#bd3535] transition duration-300 text-sm sm:text-base sm:px-8">
+          <div className="flex flex-col sm:flex-row gap-4 items-center justify-center mt-12">
+            <button className="bg-[#e24a4a] text-white px-6 py-3 rounded-full hover:bg-[#bd3535] transition duration-300 text-sm sm:text-base sm:px-8 w-fit mx-auto sm:mx-0">
               応募する
             </button>
-            <button className="bg-[#06c755] text-white px-6 py-3 rounded-full hover:bg-[#059144] transition duration-300 text-sm sm:text-base sm:px-8">
-              公式LINE
+            <button className="bg-[#06c755] text-white px-6 py-3 rounded-full hover:bg-[#059144] transition duration-300 text-sm sm:text-base sm:px-8 w-fit mx-auto sm:mx-0">
+            最近入社　なつみさんからのメッセージを見る
             </button>
           </div>
         </div>
@@ -226,74 +223,6 @@ function MainComponent() {
 
   return (
     <div className="font-noto-sans relative">
-      {/* ハンバーガーメニューボタン */}
-      <button 
-        className="fixed top-4 right-4 z-50 md:hidden bg-white p-2 rounded-lg shadow-lg"
-        onClick={() => setIsMenuOpen(!isMenuOpen)}
-      >
-        <div className={`w-6 h-0.5 bg-black mb-1.5 transition-all ${isMenuOpen ? 'rotate-45 translate-y-2' : ''}`}></div>
-        <div className={`w-6 h-0.5 bg-black mb-1.5 transition-all ${isMenuOpen ? 'opacity-0' : ''}`}></div>
-        <div className={`w-6 h-0.5 bg-black transition-all ${isMenuOpen ? '-rotate-45 -translate-y-2' : ''}`}></div>
-      </button>
-
-      {/* ナビゲーションメニュー */}
-      <nav className={`fixed top-0 right-0 h-full w-64 bg-white shadow-lg z-40 transform transition-transform duration-300 ${
-        isMenuOpen ? 'translate-x-0' : 'translate-x-full'
-      } md:hidden`}>
-        <div className="pt-16 px-4">
-          <ul className="space-y-4">
-            <li>
-              <button 
-                onClick={() => scrollToSection('concept')}
-                className="w-full text-left py-2 hover:text-gray-600"
-              >
-                コンセプト
-              </button>
-            </li>
-            <li>
-              <button 
-                onClick={() => scrollToSection('staff-message')}
-                className="w-full text-left py-2 hover:text-gray-600"
-              >
-                スタッフの声
-              </button>
-            </li>
-            <li>
-              <button 
-                onClick={() => scrollToSection('requirements')}
-                className="w-full text-left py-2 hover:text-gray-600"
-              >
-                求める人材
-              </button>
-            </li>
-            <li>
-              <button 
-                onClick={() => scrollToSection('qa')}
-                className="w-full text-left py-2 hover:text-gray-600"
-              >
-                Q&A
-              </button>
-            </li>
-            <li>
-              <button 
-                onClick={() => scrollToSection('owner')}
-                className="w-full text-left py-2 hover:text-gray-600"
-              >
-                オーナー挨拶
-              </button>
-            </li>
-          </ul>
-        </div>
-      </nav>
-
-      {/* オーバーレイ */}
-      <div 
-        className={`fixed inset-0 bg-black bg-opacity-50 z-30 transition-opacity duration-300 ${
-          isMenuOpen ? 'opacity-100 visible' : 'opacity-0 invisible'
-        } md:hidden`}
-        onClick={() => setIsMenuOpen(false)}
-      ></div>
-
       <header className="bg-[#fafafa] py-8 md:py-16 px-4 overflow-hidden">
         <div className="max-w-6xl mx-auto text-center">
           
@@ -307,27 +236,41 @@ function MainComponent() {
               className="w-full h-[350px] md:h-[500px] object-cover rounded-lg shadow-lg"
             />
             
-            <div className="absolute inset-0 bg-black/50 rounded-lg flex items-center justify-center animate-fadeIn">
-              <div className="text-white px-4 md:px-8 text-center">
-                <p className="text-lg md:text-2xl font-medium mb-6">
+            <div className="absolute inset-0 bg-black/50 rounded-lg flex items-center justify-center">
+              <div className="text-white px-4 md:px-8 text-center space-y-8">
+                <p className="text-lg md:text-2xl font-medium mb-6 opacity-0 animate-[fadeInUp_1s_ease-out_0.5s_forwards]">
                   1年後、お客様から必要とされ<br />
                   5年後、地域から必要とされ<br />
                   10年後は未来から必要とされる美容師へ。
                 </p>
                 
-                <p className="text-base md:text-xl leading-relaxed max-w-2xl mx-auto mb-6">
-                  月が満ち、地域が満ち、光が満ちる、<br />
+                <p className="text-base md:text-xl leading-relaxed max-w-2xl mx-auto mb-6 opacity-0 animate-[fadeInUp_1s_ease-out_1.5s_forwards]">
+                  月が満ち、地域が満ち、女性が満ちる、<br />
                   そんな世界観を共に創っていただけませんか
                 </p>
                 
-                <p className="text-lg md:text-3xl font-medium">
-                  女性専用サロン michill（ミチル）
+                <p className="text-lg md:text-3xl font-medium opacity-0 animate-fade-in">
+                  女性専用サロン <span className="inline-block">michill（ミチル）</span>
                 </p>
               </div>
             </div>
           </div>
         </div>
+        
       </header>
+
+      
+
+      <div className="flex flex-col sm:flex-row gap-4 items-center justify-center mt-12">
+            <button className="bg-[#e24a4a] text-white px-6 py-3 rounded-full hover:bg-[#bd3535] transition duration-300 text-sm sm:text-base sm:px-8 w-fit mx-auto sm:mx-0">
+              応募する
+            </button>
+            <button className="bg-[#06c755] text-white px-6 py-3 rounded-full hover:bg-[#059144] transition duration-300 text-sm sm:text-base sm:px-8 w-fit mx-auto sm:mx-0">
+              ロニー代表からのメッセージを見る
+            </button>
+          </div>
+
+      
 
       <section className="py-16 md:py-24 mt-16 md:mt-24">
         <SectionHeader 
@@ -338,12 +281,12 @@ function MainComponent() {
           <div className="grid grid-cols-2 gap-2 md:gap-8">
             {/* 左側: 一般的な美容室の悩み */}
             <div className="p-2 md:p-6 rounded-lg">
-              <h3 className="text-base md:text-xl font-bold text-center mb-3 md:mb-6 text-red-600">＜世の中の女性美容室＞</h3>
+              <h3 className="text-base md:text-xl font-bold text-center mb-3 md:mb-6 text-red-600">＜他店＞</h3>
               <div className="flex flex-col items-center gap-2 md:gap-4">
                 {concerns.map((concern, index) => (
                   <React.Fragment key={index}>
                     <div 
-                      className={`border-2 border-red-200 rounded-lg p-2 md:p-4 w-full text-center bg-white shadow-sm transition-all duration-500 text-xs md:text-base leading-relaxed`}
+                      className={`border-2 border-red-200 rounded-lg p-2 md:p-4 w-full text-center bg-white shadow-sm transition-all duration-500 text-xs md:text-base leading-relaxed whitespace-pre-line`}
                     >
                       {concern}
                     </div>
@@ -364,9 +307,9 @@ function MainComponent() {
               <div className="flex flex-col items-center gap-2 md:gap-4">
                 {[
                   "平均18,000円以上の高単価サロンでゆとりある予約状況✨",
-                  "教育終了後に3名程度で売ったり接客✨",
-                  "ほとんどがママ美容師なので、みんなで予約をすぐに調整✨",
-                  "外部相談役もおり、心理的安全性を保ちながら地域に必要とされる存在へ共に✨"
+                  "教育終了後に3名程度でゆったり接客✨",
+                  "ママ美容師の先輩がいますので、みんなで予約をすぐに調整✨",
+                  "外部相談役も。心理的安全性を保ちながら地域に必要とされる存在へ共に✨"
                 ].map((solution, index) => (
                   <React.Fragment key={index}>
                     <div 
@@ -416,6 +359,7 @@ function MainComponent() {
             <div className="bg-white/60 rounded-lg p-4 shadow-sm">
               ②ゆとりある働き方
               <br className="sm:hidden" />
+              <br className="sm:hidden" />
               1日に何名もこなさずに済み
               <br className="sm:hidden" />
               いつまでも現役美容師として美しく働ける
@@ -424,13 +368,14 @@ function MainComponent() {
             <div className="bg-white/60 rounded-lg p-4 shadow-sm">
               ③現場仕事だけでない「複数キャリア」の推進
               <br className="sm:hidden" />
+              <br className="sm:hidden" />
               美容業界では珍しい
               <br className="sm:hidden" />
              　メーカー・商品開発・企画広報部、在宅仕事など
              <br className="sm:hidden" />
             急な家族トラブルや体調の揺らぎにも
             <br className="sm:hidden" />
-              対応できるよう活躍の場を用意しています。
+              対応できるよう活躍の場を用意しています
             </div>
 
             
@@ -527,12 +472,12 @@ function MainComponent() {
             </div>
           </div>
 
-          <div className="flex flex-row gap-4 justify-center mt-12">
-            <button className="bg-[#e24a4a] text-white px-6 py-3 rounded-full hover:bg-[#bd3535] transition duration-300 text-sm sm:text-base sm:px-8">
+          <div className="flex flex-col sm:flex-row gap-4 items-center justify-center mt-12">
+            <button className="bg-[#e24a4a] text-white px-6 py-3 rounded-full hover:bg-[#bd3535] transition duration-300 text-sm sm:text-base sm:px-8 w-fit mx-auto sm:mx-0">
               応募する
             </button>
-            <button className="bg-[#06c755] text-white px-6 py-3 rounded-full hover:bg-[#059144] transition duration-300 text-sm sm:text-base sm:px-8">
-              michill公式LINE
+            <button className="bg-[#06c755] text-white px-6 py-3 rounded-full hover:bg-[#059144] transition duration-300 text-sm sm:text-base sm:px-8 w-fit mx-auto sm:mx-0">
+              みんなの女将　千穂子からのメッセージを見る
             </button>
           </div>
         </div>
@@ -705,14 +650,7 @@ function MainComponent() {
                   </p>
                 </div>
                 
-                <div className="flex flex-row gap-4 justify-center mt-12">
-            <button className="bg-[#e24a4a] text-white px-6 py-3 rounded-full hover:bg-[#bd3535] transition duration-300 text-sm sm:text-base sm:px-8">
-              応募する
-            </button>
-            <button className="bg-[#06c755] text-white px-6 py-3 rounded-full hover:bg-[#059144] transition duration-300 text-sm sm:text-base sm:px-8">
-              公式LINE
-            </button>
-          </div>
+                
               </div>
             </div>
           </div>
@@ -725,25 +663,47 @@ function MainComponent() {
           <div className="grid md:grid-cols-2 gap-6 md:gap-8">
             <div>
               <h3 className="text-xl mb-4">SNS</h3>
-              <div className="flex space-x-4">
-                <a 
-                  href="https://www.instagram.com/michill_hair/" 
-                  target="_blank" 
-                  rel="noopener noreferrer" 
-                  className="text-2xl hover:text-[#4a90e2]"
-                >
-                  <i className="fab fa-instagram"></i>
-                  <span className="text-sm ml-2">サロン公式</span>
-                </a>
-                <a 
-                  href="https://www.instagram.com/rony_19795/" 
-                  target="_blank" 
-                  rel="noopener noreferrer" 
-                  className="text-2xl hover:text-[#4a90e2]"
-                >
-                  <i className="fab fa-instagram"></i>
-                  <span className="text-sm ml-2">オーナー</span>
-                </a>
+              <div className="flex flex-col space-y-4">
+                <div className="flex space-x-4">
+                  <a 
+                    href="https://www.instagram.com/michill_hair/" 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className="text-2xl hover:text-[#4a90e2]"
+                  >
+                    <i className="fab fa-instagram"></i>
+                    <span className="text-sm ml-2">サロン公式</span>
+                  </a>
+                  <a 
+                    href="https://www.instagram.com/rony_19795/" 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className="text-2xl hover:text-[#4a90e2]"
+                  >
+                    <i className="fab fa-instagram"></i>
+                    <span className="text-sm ml-2">オーナー</span>
+                  </a>
+                </div>
+                <div className="relative w-full aspect-video rounded-lg overflow-hidden">
+                  <Image
+                    src="/image/dansu.png"
+                    alt="スタッフ全員でギリギリダンス"
+                    width={800}
+                    height={450}
+                    className="object-cover w-full h-full hover:scale-105 transition-transform duration-300"
+                  />
+                  <a 
+                    href="https://www.instagram.com/reel/DD_6XesPqB8/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="absolute inset-0 flex items-center justify-center bg-black/30 hover:bg-black/50 transition-colors duration-300"
+                  >
+                    <span className="text-white flex items-center gap-2">
+                      <i className="fab fa-instagram text-xl"></i>
+                      動画を見る
+                    </span>
+                  </a>
+                </div>
               </div>
             </div>
             <div>
@@ -795,7 +755,6 @@ function MainComponent() {
     </div>
   );
 }
-
 // スタイリングの追加
 const styles = {
   sectionTitle: `
@@ -821,6 +780,8 @@ MainComponent.propTypes = {
   // 必要に応じてpropTypesを定義
 };
 
-export default function Page() {
+const Page = () => {
   return <MainComponent />;
-}
+};
+
+export default Page;
