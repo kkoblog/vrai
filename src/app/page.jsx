@@ -275,38 +275,24 @@ function MainComponent() {
   const RequirementSection = () => {
     const requirements = [
       {
-        main: "仕事と家庭を両立したい方",
-        sub: "家庭が一番なので、仕事よりも家族を優先したい方"
+        main: "特化した技術が欲しい方",
+        sub: "ブリーチワークのスペシャリストとして、東京レベルの技術を名古屋で習得できます"
       },
       {
-        main: "無理なく生涯現役で美容師を続けたい方",
-        sub: "1日3名までの丁寧な施術で、疲弊することなく働きたい方"
+        main: "自分の技術に見合った報酬、成果がほしい",
+        sub: "平均単価26,000円、月80万円以上の売上を目指せる環境があります"
       },
       {
-        main: "現場以外のキャリアも積んでいきたい方",
-        sub: "商品開発や企画広報などに挑戦したい方"
+        main: "自分の時間と仕事の時間を自分で選べる人生を送りたい方",
+        sub: "お客様も30-40代の大人の女性が中心で、クレーム率は年間1件以下と非常に低く、心に余裕を持って働けます。"
       },
       {
-        main: "残業ゼロ・ゆとりある予約・数字を追わない仕事をしていきたい方",
-        sub: "心に余裕を持って働きたい方"
+        main: "将来の独立をしたい方",
+        sub: "オーナー直接指導のもと、技術力と集客力を確実に身につけられます"
       },
       {
-        main: "社会貢献や地域のイベントなどを、楽しんでやってみたい方",
-        sub: "美容師以外のことにもやりがりを持っていきたい方",
-        images: [
-          {
-            src: "/image/ibento.png",
-            alt: "社会貢献活動の様子1",
-            caption: "子ども美容室の取り組み",
-            description: "地域の子どもたちが美容師のお仕事を体験でき、クリエイティブな体験の場を提供"
-          },
-          {
-            src: "/image/sien.png",
-            alt: "社会貢献活動の様子2",
-            caption: "つばめ学習塾への寄付活動",
-            description: "これにより、塾に通えない子どもたちへの学習支援ができた"
-          }
-        ]
+        main: "業務委託の環境に不安がある方",
+        sub: "「あなた以外は嫌だ」と言ってもらえる固定客を持てる美容師に成長できます"
       }
     ];
 
@@ -389,9 +375,7 @@ function MainComponent() {
             >
               応募する
             </Link>
-            <button className="bg-[#06c755] text-white px-6 py-3 rounded-full hover:bg-[#059144] transition duration-300 text-sm sm:text-base sm:px-8 w-fit mx-auto sm:mx-0">
-            最近入社　なつみさんからのメッセージを見る
-            </button>
+            
           </div>
         </div>
       </section>
@@ -423,19 +407,19 @@ function MainComponent() {
             <div className="absolute inset-0 bg-black/50 rounded-lg flex items-center justify-center">
               <div className="text-white px-4 md:px-8 text-center space-y-8">
                 <p className="text-base md:text-2xl font-medium mb-6 opacity-0 animate-[fadeInUp_1s_ease-out_0.5s_forwards]">
-                  1年後、お客様から必要とされ<br />
-                  5年後、地域から必要とされ<br />
-                  10年後は未来から必要とされる美容師へ。
+                  ー<br />
+                  ー<br />
+                  ー
                 </p>
                 
                 <p className="text-base md:text-xl leading-relaxed max-w-2xl mx-auto mb-6 opacity-0 animate-[fadeInUp_1s_ease-out_1.5s_forwards]">
-                  月が満ち、地域が満ち、女性が満ちる、<br />
-                  そんな世界観を共に創っていただけませんか
+                  ー<br />
+                  ー
                 </p>
                 
                 <div className="relative">
                   <p className="text-2xl md:text-4xl lg:text-5xl font-medium opacity-0 blur-sm" id="blurText">
-                    <span className="inline-block">女性専用サロン michill（ミチル）</span>
+                    <span className="inline-block">vrai</span>
                   </p>
                   <style jsx>{`
                     #blurText {
@@ -461,31 +445,7 @@ function MainComponent() {
         
       </header>
 
-      <div className="text-center mt-8 mb-4">
-        <p className="text-lg text-gray-700 font-medium">
-          他2店舗でも同条件でスタッフ２名ずつ募集しております
-        </p>
-        <div className="flex flex-col sm:flex-row gap-4 items-center justify-center mt-4">
-          <a 
-            href="https://www.instagram.com/rubadub1109?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" 
-            target="_blank"
-            rel="noopener noreferrer"
-            className="bg-[#D3B58D] text-white px-6 py-3 rounded-full hover:bg-[#c4a27a] transition duration-300 text-sm sm:text-base sm:px-8 w-fit mx-auto sm:mx-0 flex items-center gap-2 shadow-sm"
-          >
-            <i className="fab fa-instagram"></i>
-            守山区のRubaDub
-          </a>
-          <a 
-            href="https://www.instagram.com/comachi_color?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" 
-            target="_blank"
-            rel="noopener noreferrer"
-            className="bg-[#D3B58D] text-white px-6 py-3 rounded-full hover:bg-[#c4a27a] transition duration-300 text-sm sm:text-base sm:px-8 w-fit mx-auto sm:mx-0 flex items-center gap-2 shadow-sm"
-          >
-            <i className="fab fa-instagram"></i>
-            大曽根のcomachi
-          </a>
-        </div>
-      </div>
+      
 
       <div className="flex flex-col sm:flex-row gap-4 items-center justify-center mt-8">
         <Link 
@@ -495,7 +455,7 @@ function MainComponent() {
           応募する
         </Link>
         <button className="bg-[#06c755] text-white px-6 py-3 rounded-full hover:bg-[#059144] transition duration-300 text-sm sm:text-base sm:px-8 w-fit mx-auto sm:mx-0">
-          代表ロニーからのメッセージを見る
+          代表MASAKIからのメッセージを見る
         </button>
       </div>
 
@@ -512,8 +472,8 @@ function MainComponent() {
 
       <section className="py-16 md:py-24 mt-8 md:mt-12">
         <SectionHeader 
-          title="世の中の女性美容師さんが抱える悩み事、当サロンでは一切致しません"
-          subtitle="現場で女性美容師さんを困らせること"
+          title="多くの美容師が抱える悩み事、当サロンでは一切致しません"
+          subtitle="現場で美容師を困らせがちな環境や課題"
         />
         <div className="max-w-6xl mx-auto px-4">
           <div className="grid grid-cols-2 gap-2 md:gap-8">
@@ -521,45 +481,40 @@ function MainComponent() {
             <div className="p-2 md:p-6 rounded-lg">
               <h3 className="text-base md:text-xl font-bold text-center mb-3 md:mb-6 text-red-600">＜他店＞</h3>
               <div className="flex flex-col items-center gap-2 md:gap-4">
-                {concerns.map((concern, index) => (
+                {[
+                  "「ブリーチは好き」なのに、髪質改善・白髪染めがメインで夢が遠のいていく💦",
+                  "外部講習に通っても、サロンでは実践できずモチベーションが下がる日々💦",
+                  "人間関係は良好で給料も安定...でも10年後も同じ技術のままで大丈夫？💦",
+                  "東京のサロンに行きたい気持ちはあるけど、今の環境が心地よくて一歩が踏み出せない💦"
+                ].map((concern, index) => (
                   <React.Fragment key={index}>
-                    <div 
-                      className={`border-2 border-red-200 rounded-lg p-2 md:p-4 w-full text-center bg-white shadow-sm transition-all duration-500 text-xs md:text-base leading-relaxed whitespace-pre-line`}
-                    >
+                    <div className="border-2 border-red-200 rounded-lg p-2 md:p-4 w-full text-center bg-white shadow-sm text-xs md:text-base leading-relaxed">
                       {concern}
                     </div>
-                    
-                    {index < concerns.length - 1 && (
-                      <div className="text-red-400 text-base md:text-2xl">
-                        ↓
-                      </div>
+                    {index < 3 && (
+                      <div className="text-red-400 text-base md:text-2xl">↓</div>
                     )}
                   </React.Fragment>
                 ))}
               </div>
             </div>
 
-            {/* 右側: michillでの解決策 */}
+            {/* 右側: vraiの場合 */}
             <div className="p-2 md:p-6 rounded-lg">
-              <h3 className="text-base md:text-xl font-bold text-center mb-3 md:mb-6 text-[#D3B58D]">＜michillの場合＞</h3>
+              <h3 className="text-base md:text-xl font-bold text-center mb-3 md:mb-6 text-[#D3B58D]">＜vraiなら＞</h3>
               <div className="flex flex-col items-center gap-2 md:gap-4">
                 {[
-                  "平均18,000円以上の高単価サロンでゆとりある予約状況✨",
-                  "教育終了後に3名程度でゆったり接客✨",
-                  "ママ美容師の先輩がいますので、みんなで予約をすぐに調整✨",
-                  "外部相談役も。心理的安全性を保ちながら地域に必要とされる存在へ共に✨"
+                  "平均26,000円の高単価サロン。ブリーチ率80%以上で「やりたかった技術」が毎日活かせる✨",
+                  "営業後にオーナーが直接マンツーマン指導。憧れの技術を確実に身につけられる✨",
+                  "最短1年でブリーチワークのスペシャリストへ。東京レベルの技術が名古屋で学べる✨",
+                  "独立も視野に入れた確かな技術力と実績。自分の未来を自分で選べる環境✨"
                 ].map((solution, index) => (
                   <React.Fragment key={index}>
-                    <div 
-                      className={`border-2 border-[#D3B58D] rounded-lg p-2 md:p-4 w-full text-center bg-white shadow-sm transition-all duration-500 text-xs md:text-base leading-relaxed`}
-                    >
+                    <div className="border-2 border-[#D3B58D] rounded-lg p-2 md:p-4 w-full text-center bg-white shadow-sm text-xs md:text-base leading-relaxed">
                       {solution}
                     </div>
-                    
                     {index < 3 && (
-                      <div className="text-[#D3B58D] text-base md:text-2xl">
-                        ↓
-                      </div>
+                      <div className="text-[#D3B58D] text-base md:text-2xl">↓</div>
                     )}
                   </React.Fragment>
                 ))}
@@ -574,7 +529,7 @@ function MainComponent() {
         
         <div className="relative z-10">
           <h3 className="text-xl md:text-3xl font-bold text-center mb-6">
-            <span className="text-[#D3B58D]">michillの特徴</span>
+            <span className="text-[#D3B58D]">vraiの特徴</span>
             <br className="md:hidden" />
           </h3>
 
@@ -602,15 +557,13 @@ function MainComponent() {
               style={{ transitionDelay: '100ms' }}
             >
               <span className="text-[#D3B58D] font-bold text-lg">①</span>
-              平均18,000円の高単価サロンで
-              <br />
-              年齢を重ねた接客がむしろ強みに
+              バレイヤージュ・ハイライト特化で平均26,000円高単価
               <br />
               <br />
               <span className="text-gray-700 text-sm md:text-base">
-                お客様の年齢層も40代以降の方が多いため
+                高度な技術と丁寧な施術で
                 <br />
-                担当する美容師も40代以降ですと安心感を持たれます
+                お客様に高い満足度を提供できます
               </span>
             </div>
 
@@ -621,13 +574,13 @@ function MainComponent() {
               style={{ transitionDelay: '300ms' }}
             >
               <span className="text-[#D3B58D] font-bold text-lg">②</span>
-              ゆとりある働き方
+              東京でやっている技術が名古屋の金山で学べる
               <br />
               <br />
               <span className="text-gray-700 text-sm md:text-base">
-                1日に何名もこなさずに済み
+                最新のトレンドと高度な技術を
                 <br />
-                いつまでも現役美容師として美しく働ける
+                地元名古屋で習得することができます
               </span>
             </div>
 
@@ -638,17 +591,15 @@ function MainComponent() {
               style={{ transitionDelay: '500ms' }}
             >
               <span className="text-[#D3B58D] font-bold text-lg">③</span>
-              現場仕事だけでない「複数キャリア」の推進
+              自分の技術を評価してくれるお客様がついてくれる
               <br />
               <br />
               <span className="text-gray-700 text-sm md:text-base">
-                美容業界では珍しい
+                技術力を正当に評価され
                 <br />
-                メーカー・商品開発・企画広報部、在宅仕事など
+                あなたの担当でないと嫌だと言ってもらえる
                 <br />
-                急な家族トラブルや体調の揺らぎにも
-                <br />
-                対応できるよう活躍の場を用意しています
+                そんな信頼関係を築くことができます
               </span>
             </div>
           </div>
@@ -657,7 +608,7 @@ function MainComponent() {
 
       <section className="py-16 md:py-24 bg-gradient-to-r from-[#D3B58D]/10 to-[#D3B58D]/5">
         <SectionHeader 
-          title="michillで働くことで得られる事"
+          title="vraiで働くことで得られる事"
           subtitle="あなたらしい働き方"
         />
         <div className="max-w-6xl mx-auto px-4">
@@ -672,7 +623,7 @@ function MainComponent() {
               style={{ transitionDelay: '100ms' }}
             >
               <h3 className="text-2xl mb-4 font-bold">
-                新しい技術・スキルを営業内に学ぶことができます
+                東京に行かなくても業界トップクラスのブリーチテクニックが身につきます
               </h3>
               <div className="flex flex-col md:flex-row gap-4 md:gap-6">
                 <div className="w-full md:w-[400px] flex-shrink-0">
@@ -685,10 +636,8 @@ function MainComponent() {
                   />
                 </div>
                 <p className="text-base md:text-lg leading-relaxed">
-                  これにより、体と心に負担がかからず、家庭とお仕事の両立ができます。
-                  女性にゆとりができると家族の雰囲気もガラッと変わりますね。
-                  10年後、お子さまやパートナーからもリスペクトされる働き方を作りましょう。
-          
+                  当サロンでは、オーナー自らが10年以上かけて培ったブリーチワークの技術を、体系的に学ぶことができます。東京の有名サロンに通わなくても、名古屋で最先端の技術を習得できる環境を整えています<br /><br />
+                  実際の施術では、サロンのブリーチ施術率が80%を超えているため、学んだ技術を即座に実践できます。理論だけでなく、実践を通じて確実にスキルアップを図ることができます<br /><br />
                 </p>
               </div>
             </div>
@@ -700,7 +649,7 @@ function MainComponent() {
               style={{ transitionDelay: '200ms' }}
             >
               <h3 className="text-2xl mb-4 font-bold">
-                現場以外のキャリアを叶えることができます
+                「あなた以外は嫌だと」お客様に言っていただけます
               </h3>
               <div className="flex flex-col md:flex-row gap-4 md:gap-6">
                 <div className="w-full md:w-[400px] flex-shrink-0">
@@ -713,11 +662,9 @@ function MainComponent() {
                   />
                 </div>
                 <p className="text-base md:text-lg leading-relaxed">
-                  これにより、急な体調のゆらぎが起こった場合はしばらくは在宅に切り替えたり、
-                  現場以外のメーカー部や企画広報部としてのお仕事で地域貢献もできます、
-                  弊社ではコンセプトの異なる4サロンを展開しているため、
-                  年齢や希望に沿った働き方を一緒に作っていきましょう。
-
+                  お客様から「あなた以外は嫌だ」と言っていただけることで、あなたの技術や接客が正当に評価され、
+                  固定客として長期的な信頼関係を築くことができます。これにより、安定した収入が見込め、
+                  キャリアの選択肢も広がります
                 </p>
               </div>
             </div>
@@ -729,7 +676,7 @@ function MainComponent() {
               style={{ transitionDelay: '300ms' }}
             >
               <h3 className="text-2xl mb-4 font-bold">
-                特化メニューの提供
+                将来の選択が自由にできる美容師になります
               </h3>
               <div className="flex flex-col md:flex-row gap-4 md:gap-6">
                 <div className="w-full md:w-[400px] flex-shrink-0">
@@ -742,9 +689,9 @@ function MainComponent() {
                   />
                 </div>
                 <p className="text-base md:text-lg leading-relaxed">
-                  「白髪老化ケア」という頭皮や髪を錆びさせずに、
-                  守り続ける施術を自社開発しました。
-                  これにより、お客様が失客せず、末永く施術することが可能になりました。
+                高度な技術力を身につけることで、
+                  業務委託や面貸し、独立開業など、どのような環境でも
+                  活躍できる実力が身につきます
                 </p>
               </div>
             </div>
@@ -766,11 +713,13 @@ function MainComponent() {
               <div className="max-w-2xl mx-auto">
                 <div className="space-y-4">
                   {[
-                    { time: "9:00", activity: "掃除、ミーティング" },
-                    { time: "9:30", activity: "オープン" },
-                    { time: "12:00", activity: "順々に昼休憩" },
-                    { time: "17:30", activity: "掃除開始" },
-                    { time: "18:00", activity: "退勤（残業なし）" },
+                    { time: "9:00", activity: "出勤" },
+                    { time: "9:30", activity: "掃除" },
+                    { time: "9:45", activity: "朝礼" },
+                    { time: "10:00", activity: "営業開始" },
+                    { time: "15:30", activity: "お昼ご飯" },
+                    { time: "20:00", activity: "終礼" },
+                    { time: "20:15", activity: "練習、帰宅" },
                   ].map((schedule, index) => (
                     <div 
                       key={index}
@@ -786,12 +735,7 @@ function MainComponent() {
                   ))}
                 </div>
                 
-                <div className="mt-8 p-4 bg-[#D3B58D]/10 rounded-lg">
-                  <p className="text-sm text-gray-600 text-center">
-                    ※ 施術は1日3名までを目安に予約を受け付けています。<br />
-                    ゆとりのある時間配分で、丁寧な施術を心がけています。
-                  </p>
-                </div>
+                
               </div>
             </div>
           </div>
@@ -803,28 +747,12 @@ function MainComponent() {
             >
               応募する
             </Link>
-            <button className="bg-[#06c755] text-white px-6 py-3 rounded-full hover:bg-[#059144] transition duration-300 text-sm sm:text-base sm:px-8 w-fit mx-auto sm:mx-0">
-              みんなの女将　千穂子からのメッセージを見る
-            </button>
+            
           </div>
         </div>
       </section>
 
-      <section className="py-16 md:py-24">
-        
-        <div className="max-w-5xl mx-auto px-4">
-          <div className="space-y-8">
-            <StaffCard 
-              image="/image/aoi.jpg"
-              name="あおい"
-              position="入社4年目 / スタイリスト"
-              message={`4歳の子供がいるため、急な休みを取ることも...`}
-              instagramUrl="https://www.instagram.com/reel/C_7jiphvJ4I/embed"
-            />
-            {/* 必要に応じて追加のStaffCardを配置 */}
-          </div>
-        </div>
-      </section>
+      
 
     
 
@@ -838,93 +766,119 @@ function MainComponent() {
       {[
         {
           title: "勤務地",
-          content: "愛知県名古屋市名東区一社２丁目１４ エポック一社 1F"
+          content: "愛知県名古屋市中区平和１-２２-５ パルティール金山アネックス１F"
         },
         {
           title: "雇用形態",
-          content: "正社員・パート・アルバイト・業務委託"
+          content: "正社員"
         },
         {
           title: "職種・給与",
           content: (
+            <div className="space-y-8">
+              <div>
+                <p className="font-medium text-lg border-b-2 border-[#D3B58D] pb-2 mb-4">アシスタント</p>
+                <div className="space-y-4">
+                  <div>
+                    <p className="font-medium text-gray-800">月給 21万円 ~ 25万円</p>
+                    <p className="text-sm text-gray-600">※試用期間6ヶ月：月給20万円</p>
+                  </div>
+                  <div className="space-y-2">
+                    <p className="font-medium text-gray-800">各種手当</p>
+                    <ul className="list-none space-y-2 text-gray-600">
+                      <li className="flex items-start">
+                        <span className="text-[#D3B58D] mr-2">✓</span>
+                        <span><strong>店販手当</strong>：売上額の10％を支給</span>
+                      </li>
+                      <li className="flex items-start">
+                        <span className="text-[#D3B58D] mr-2">✓</span>
+                        <span><strong>生産性手当</strong>：生産性に応じて支給（月90万円～/1万円、80万円/6,000円）※スタッフ人数により変動</span>
+                      </li>
+                      <li className="flex items-start">
+                        <span className="text-[#D3B58D] mr-2">✓</span>
+                        <span><strong>売上手当</strong>：月間売上に応じて支給<br />
+                        ・80万円：10%<br />
+                        ・100万円：12～15%<br />
+                        ・200万円：25～30%</span>
+                      </li>
+                      <li className="flex items-start">
+                        <span className="text-[#D3B58D] mr-2">✓</span>
+                        <span><strong>管理手当</strong>：備品や在庫管理、他スタッフへの指示等に応じて支給（月上限2万円）</span>
+                      </li>
+                      <li className="flex items-start">
+                        <span className="text-[#D3B58D] mr-2">✓</span>
+                        <span><strong>ブログ手当</strong>：サロンサイト・インスタ等の投稿1件につき100円</span>
+                      </li>
+                      <li className="flex items-start">
+                        <span className="text-[#D3B58D] mr-2">✓</span>
+                        <span><strong>口コミ手当</strong>：1件につき500円（Googleビジネスプロフィール含む）</span>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <div>
+                <p className="font-medium text-lg border-b-2 border-[#D3B58D] pb-2 mb-4">スタイリスト</p>
+                <div className="space-y-4">
+                  <div>
+                    <p className="font-medium text-gray-800">月給 22万円 ~ 100万円</p>
+                    <p className="text-sm text-gray-600">例）技術売上80万円の場合：基本給＋生産性手当＋技術手当＋etc＝32万円～</p>
+                  </div>
+                  <div className="space-y-2">
+                    <p className="font-medium text-gray-800">キャリアパスと昇給</p>
+                    <p className="text-gray-600">フリー入客start → 平均指名50名player → 店長 と段階的に基本給UP</p>
+                  </div>
+                  <div className="space-y-2">
+                    <p className="font-medium text-gray-800">各種手当</p>
+                    <ul className="list-none space-y-2 text-gray-600">
+                      <li className="flex items-start">
+                        <span className="text-[#D3B58D] mr-2">✓</span>
+                        <span><strong>店販手当</strong>：売上額の10％を支給</span>
+                      </li>
+                      <li className="flex items-start">
+                        <span className="text-[#D3B58D] mr-2">✓</span>
+                        <span><strong>生産性手当</strong>：生産性に応じて支給（月90万円～/1万円、80万円/6,000円）※スタッフ人数により変動</span>
+                      </li>
+                      <li className="flex items-start">
+                        <span className="text-[#D3B58D] mr-2">✓</span>
+                        <span><strong>売上手当</strong>：月間売上に応じて支給<br />
+                        ・80万円：10%<br />
+                        ・100万円：12～15%<br />
+                        ・200万円：25～30%</span>
+                      </li>
+                      <li className="flex items-start">
+                        <span className="text-[#D3B58D] mr-2">✓</span>
+                        <span><strong>管理手当</strong>：備品や在庫管理、他スタッフへの指示等に応じて支給（月上限2万円）</span>
+                      </li>
+                      <li className="flex items-start">
+                        <span className="text-[#D3B58D] mr-2">✓</span>
+                        <span><strong>ブログ手当</strong>：サロンサイト・インスタ等の投稿1件につき100円</span>
+                      </li>
+                      <li className="flex items-start">
+                        <span className="text-[#D3B58D] mr-2">✓</span>
+                        <span><strong>口コミ手当</strong>：1件につき500円（Googleビジネスプロフィール含む）</span>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          )
+        },
+        {
+          title: "試用期間",
+          content: "試用期間あり"
+        },
+        {
+          title: "待遇・福利厚生",
+          content: (
             <div className="space-y-4">
-              <div>
-                <p className="font-medium">スタイリスト</p>
-                <ul className="list-disc list-inside ml-4 text-gray-600">
-                  <li>基本給 23万円</li>
-                  <li>歩合 35%</li>
-                  <li>店販 10% (他20%と30%)</li>
-                </ul>
-              </div>
-              <div>
-                <p className="font-medium">トップスタイリスト</p>
-                <ul className="list-disc list-inside ml-4 text-gray-600">
-                  <li>基本給 25万円</li>
-                  <li>歩合 35%</li>
-                  <li>店販 10% (他20%と30%)</li>
-                </ul>
-              </div>
-            </div>
-          )
-        },
-        {
-          title: "勤務時間",
-          content: "9時から18時"
-        },
-        {
-          title: "休日",
-          content: (
-            <ul className="list-disc list-inside space-y-1 text-gray-600">
-              <li>日曜日</li>
-              <li>祝日定休</li>
-              <li>夏季休暇</li>
-              <li>お正月</li>
-              <li>フレキシブル休暇</li>
-              <li>慶弔休暇</li>
-            </ul>
-          )
-        },
-        {
-          title: "待遇",
-          content: (
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <div>
-                <p className="font-medium mb-2">保険・手当</p>
-                <ul className="list-disc list-inside space-y-1 text-gray-600">
-                  <li>社会保険全て完備（雇用保険、健康保険、厚生年金）</li>
-                  <li>交通費支給</li>
-                  <li>健康診断無料</li>
-                  <li>入社時引越し手当</li>
-                  <li>住宅手当</li>
-                </ul>
-              </div>
-              <div>
-                <p className="font-medium mb-2">研修・支援</p>
-                <ul className="list-disc list-inside space-y-1 text-gray-600">
-                  <li>講習費無料</li>
-                  <li>ヴィッグ支給</li>
-                  <li>制服支給（週1着用日があります）</li>
-                  <li>練習アプリ無料</li>
-                  <li>マネジメント＆コミュニケーション勉強会無料</li>
-                  <li>メイクレッスン補助</li>
-                  <li>着付けレッスン</li>
-                </ul>
-              </div>
-            </div>
-          )
-        },
-        {
-          title: "その他",
-          content: (
-            <div className="flex items-center space-x-4">
-              <span className="inline-flex items-center px-3 py-1 rounded-full bg-[#D3B58D]/10 text-gray-700">
-                <i className="fas fa-check mr-2 text-[#D3B58D]"></i>
-                有給100%消化
-              </span>
-              <span className="inline-flex items-center px-3 py-1 rounded-full bg-[#D3B58D]/10 text-gray-700">
-                <i className="fas fa-check mr-2 text-[#D3B58D]"></i>
-                残業なし
-              </span>
+              <ul className="list-disc list-inside space-y-2 text-gray-600">
+                <li>社会保険完備（雇用保険・労災保険・健康保険・厚生年金）</li>
+                <li>交通費規定支給（上限1万円/月）</li>
+              </ul>
+              <p className="text-sm text-gray-500">※試用期間あり（技術レベルによる）</p>
             </div>
           )
         }
@@ -966,18 +920,17 @@ function MainComponent() {
           <div className="space-y-4">
             {[
               {
-                question: "技術に不安があっても大丈夫ですか？",
-                answer: "研修期間中は、営業時間内の６割がトレーニングです。オリジナルのアプリがありますのでそれを見てご自身の空いている時間に勉強ができます。"
-              },
-              {
-                question: "お客様の年齢層は？",
-                answer: "30〜60代の女性のみです。白髪染めやヘアケアに関心の高いお客様が中心です。"
+                question: "ブリーチは好きだけど技術には自信がない。",
+                answer: "オーナー自ら手取り足取りブリーチワークの指導をします。僕が10年打ち込んだ技術のノウハウをしっかり落とし込みます！現場でもブリーチ率80%を超えるのですぐに学んだことを実践することができます。"
               },
               {
                 question: "採用までの流れはどんな感じですか？",
-                answer: "まずzoomでオンライン面談をします。その後、サロン見学＆メニューの体験をしてご希望があれば面接をします。"
+                answer: "まずはサロン見学に来てもらいます。遠方で難しい、まずは僕の雰囲気が知りたい方はzoomでも可能。その後希望があれば面接をして採用です！"
               },
-              
+              {
+                question: "お客様の雰囲気は？",
+                answer: "主に30代から40代がメインです。お客さんの特徴としては所得が高く比較的美容にお金を使う事が好きな方が多いです。"
+              },
             ].map((qa, index) => (
               <details 
                 key={index} 
@@ -1027,37 +980,54 @@ function MainComponent() {
                   />
                 </div>
                 <h3 className="text-xl font-bold mb-1">オーナー</h3>
-                <p className="text-gray-600 mb-6 md:mb-0">RONY</p>
+                <p className="text-gray-600 mb-6 md:mb-0">MASAKI</p>
               </div>
               
               <div className="md:w-2/3">
                 <div className="prose prose-sm md:prose-lg max-w-none">
-                  <p className="space-y-4 md:space-y-6">
-                    <span className="block mb-4 md:mb-6 text-gray-800 text-base md:text-lg leading-relaxed">
-                      私は20代から美容師として現場に立つ中で40代以降の女性美容師が体力面や待遇面で疲弊し大好きな仕事を辞めていく姿をこれまでに何名も見てきました。
+                  <p className="space-y-6 md:space-y-8">
+                    <span className="block mb-6 text-gray-800 text-[15px] md:text-lg leading-relaxed tracking-wide px-2 md:px-0">
+                      入社してまもない頃にブリーチデザインにハマりました。僕は今のお店をオープンするまで10年間人間としても美容師としても尊敬できるオーナーのもとで働いていました。
+                      <br /><br />
+                      ですがその時代は今ほど明るい髪色を好む方も少なく、学ぶ機会も実践する場もほとんどありませんでした。サロンはとてもいいお客さんが多く楽しい毎日でしたがブリーチをするお客さんはその当時、月に数えるほどでした。
+                      <br /><br />
+                      なのでたくさんのお金と時間を使い外部に講習に行く毎日でした。夜行バスに乗って東京に行くなんてよくある話でした。もちろん全てが身を結ぶことなんてなかっです。
                     </span>
 
-                    <span className="block mb-4 md:mb-6 text-gray-800 text-base md:text-lg leading-relaxed">
-                      落ち着いた接客ができ、お客様の痛みにも寄り添える優秀な40代女性美容師が辞めていくことは同じ美容師としても心が痛く「いつか自身の店舗を持った際には40代以降の女性美容師が疲弊することなく、むしろ年齢も"安心感"に繋がるようなさサロン作りをしたい」と決め、michillが誕生したのです。ここは、
+                    <span className="block mb-6 text-gray-800 text-[15px] md:text-lg leading-relaxed tracking-wide px-2 md:px-0">
+                      学んだことを実践してもそこから出てくる新しい疑問を解消するためにまた講習に出てのいたちごっこ。
+                      <br /><br />
+                      ハイトーンの集客なんてもちろん全部自分でやるしかなかったです笑
+                      なんとかやりたい事を貫き大好きだったサロンに少しの恩は返せたかな？って頃に今のお店をオープンしました！
                     </span>
 
-                    <span className="block mb-4 md:mb-6 text-gray-800 text-base md:text-lg leading-relaxed">
-                      ・40代以降のお客様がメインだからこそ、若い美容師よりも40代以降の美容師が求められる<br />
-                      ・同じ悩みを持つからこそ寄り添える<br />
-                      ・予約が混み合い、低単価の施術ではなく、白髪老化ケアを通じて高価値のメニューを提供でき、求められる美容師へ
+                    <span className="block mb-6 text-gray-800 text-[15px] md:text-lg leading-relaxed tracking-wide px-2 md:px-0">
+                      ですが近年ではデビューまで2年、働き方の改革（業務委託、面貸し）、サロンの専門化などでこんな僕みたいな美容師人生を送るにはとてもよいオーナーの元にいるか、鬼のメンタルがいります笑
+                      <br /><br />
+                      僕の時代は根性論だったのでまわりもそんな感じでした笑
+                      そんな経験から僕はこれからブリーチワークをする子たちに1秒でも早い成長、1円でも多く自分に使えるお金を与えたいなと思います。
                     </span>
 
-                    <span className="block mb-4 md:mb-6 text-gray-800 text-base md:text-lg leading-relaxed">
-                      をコンセプトとし、現在では２名ではありますが、仲間を募集しています。
+                    <span className="block mb-6 text-gray-800 text-[15px] md:text-lg leading-relaxed tracking-wide px-2 md:px-0">
+                      ブリーチにあまり触れないし、東京みたいなガチガチの都心サロンじゃなかったからこそ得る事ができたノウハウがありますし。また昔の僕と同じ環境で働いている子たちの悩みを解決してあげれると思います。
+                      <br /><br />
+                      この業界はまだまだ美容師の価値が低く、技術があるのに評価されない、適切な単価を頂けない美容師で溢れています。
                     </span>
 
-                    <span className="block mb-4 md:mb-6 text-gray-800 text-base md:text-lg leading-relaxed">
-                      数年ブランクがあっても、技術に自信が無くても結構です。<br />
-                      当店では現場以外のお仕事もしていただけるよう設計しています。
+                    <span className="block mb-6 text-gray-800 text-[15px] md:text-lg leading-relaxed tracking-wide px-2 md:px-0">
+                      <div className="bg-gray-50 p-4 rounded-lg space-y-2">
+                        <p>◦ 仕事は好きだけど何の為に働いているのかわからない</p>
+                        <p>◦ 自分には無理だった</p>
+                        <p>◦ 東京行きたいけど諦めて名古屋にいる</p>
+                      </div>
                     </span>
 
-                    <span className="block text-gray-800 text-base md:text-lg leading-relaxed">
-                      まずは、働くにあたり弊社の説明も差し上げますのでご遠慮なく応募フォームまたはインスタよりDMをお待ちしております！
+                    <span className="block text-gray-800 text-[15px] md:text-lg leading-relaxed tracking-wide px-2 md:px-0">
+                      こうゆう方達を1人でも救いたいです。あなたの技術を好きになってくれて、一生評価してくれるお客様を1人でも多く付けてあげたい。
+                      <br /><br />
+                      努力が報われる瞬間、あなたしかいないと評価される瞬間はこの仕事をしていて1番美容師になって良かったと思える瞬間です。
+                      <br /><br />
+                      まずはやりたいと思う事が全ての始まりです、怖がらずにまずは僕に相談することから始めてみませんか！
                     </span>
                   </p>
                 </div>
@@ -1096,40 +1066,21 @@ function MainComponent() {
                     className="text-2xl hover:text-[#4a90e2]"
                   >
                     <i className="fab fa-instagram"></i>
-                    <span className="text-sm ml-2">代表ロニー</span>
+                    <span className="text-sm ml-2">代表MASAKI</span>
                   </a>
                 </div>
-                <div className="relative w-full aspect-video rounded-lg overflow-hidden">
-                  <Image
-                    src="/image/dansu.png"
-                    alt="スタッフ全員でギリギリダンス"
-                    width={800}
-                    height={450}
-                    className="object-cover w-full h-full hover:scale-105 transition-transform duration-300"
-                  />
-                  <a 
-                    href="https://www.instagram.com/reel/DD_6XesPqB8/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="absolute inset-0 flex items-center justify-center bg-black/30 hover:bg-black/50 transition-colors duration-300"
-                  >
-                    <span className="text-white flex items-center gap-2">
-                      <i className="fab fa-instagram text-xl"></i>
-                      動画を見る
-                    </span>
-                  </a>
-                </div>
+                
               </div>
             </div>
             <div>
               <h3 className="text-xl mb-4">店舗情報</h3>
-              <p>住所：〒465-0093 愛知県名古屋市名東区一社２丁目１４ エポック一社 1F</p>
-              <p>電話：052-784-9311</p>
-              <p>営業時間：9:30-18:00（土曜日は19:00まで）</p>
-              <p>定休日：日曜日</p>
+              <p>住所：〒460-0021 愛知県名古屋市中区平和１-２２-５ パルティール金山アネックス１F</p>
+              <p>電話：052-322-6363</p>
+              <p>営業時間：火～金 10:00-21:00 / 土 10:00-20:30 / 日 10:00-20:00</p>
+              <p>定休日：月曜日、不定休（火曜、日曜）</p>
               <div className="mt-4 w-full h-[400px]">
                 <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3261.8601563414394!2d136.99768791744386!3d35.16786399999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x600365fabaac0805%3A0x49f414bdf1d872b!2z44Of44OB44Or!5e0!3m2!1sja!2sjp!4v1711603847736!5m2!1sja!2sjp"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3262.2177893964187!2d136.89901847677547!3d35.15783797275171!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x600376e7a4884f11%3A0x8d4f7558f2267c88!2z44CSNDYwLTAwMjEg5oSb55-l55yM5ZCN5Y-k5bGL5biC5Lit5Yy65bmz5ZKM77yR5LiB55uu77yS77yS4oiS77yVIOODkeODq-ODhuOCo-ODvOODq-mHkeWxseOCouODjeODg-OCr-OCuQ!5e0!3m2!1sja!2sjp!4v1711604575099!5m2!1sja!2sjp"
                   width="100%"
                   height="100%"
                   style={{ border: 0 }}
