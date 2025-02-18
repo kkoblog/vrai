@@ -4,8 +4,8 @@ import './globals.css'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata = {
-  title: 'michill - 女性専用サロン',
-  description: '名古屋市名東区の女性専用美容室michillの求人サイトです。',
+  title: 'vrai（ヴレ）| 名古屋市名東区の美容室',
+  description: '名古屋市名東区の美容室vraiの求人情報サイトです。',
 }
 
 export default function RootLayout({ children }) {
