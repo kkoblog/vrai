@@ -122,11 +122,11 @@ const ImageSlideshow = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const images = [
     {
-      src: "/image/gaikan.jpg",
+      src: "/image/viaigaikan.jpeg",
       alt: "外観の様子"
     },
     {
-      src: "/image/naikan.jpg",
+      src: "/image/vrainaisou2.jpeg",
       alt: "店内の様子"
     }
   ];
@@ -397,7 +397,7 @@ function MainComponent() {
           
           <div className="relative">
             <Image
-              src="/image/michill.jpg"
+              src="/image/vraigaikan2.jpeg"
               alt="明るく清潔感のあるサロン内装"
               width={1200}
               height={600}
@@ -457,17 +457,6 @@ function MainComponent() {
         <button className="bg-[#06c755] text-white px-6 py-3 rounded-full hover:bg-[#059144] transition duration-300 text-sm sm:text-base sm:px-8 w-fit mx-auto sm:mx-0">
           代表MASAKIからのメッセージを見る
         </button>
-      </div>
-
-      <div className="mt-8 md:mt-12 px-4 max-w-6xl mx-auto">
-        <Image
-          src="/image/zentai.png"
-          alt="説明的な代替テキスト"
-          width={1200}
-          height={800}
-          className="w-full h-auto rounded-lg shadow-lg"
-          priority
-        />
       </div>
 
       <section className="py-16 md:py-24 mt-8 md:mt-12">
@@ -628,8 +617,8 @@ function MainComponent() {
               <div className="flex flex-col md:flex-row gap-4 md:gap-6">
                 <div className="w-full md:w-[400px] flex-shrink-0">
                   <Image
-                    src="/image/zikannai.JPG"
-                    alt="スタッフの様子"
+                    src="/image/tokutyou1.jpeg"
+                    alt="ブリーチ"
                     width={400}
                     height={300}
                     className="w-full h-[400px] md:h-[300px] rounded-lg object-cover"
@@ -654,7 +643,7 @@ function MainComponent() {
               <div className="flex flex-col md:flex-row gap-4 md:gap-6">
                 <div className="w-full md:w-[400px] flex-shrink-0">
                   <Image
-                    src="/image/miga.jpg"
+                    src="/image/tokutyou2.jpeg"
                     alt="スタッフの様子"
                     width={400}
                     height={300}
@@ -681,7 +670,7 @@ function MainComponent() {
               <div className="flex flex-col md:flex-row gap-4 md:gap-6">
                 <div className="w-full md:w-[400px] flex-shrink-0">
                   <Image
-                    src="/image/sezyutu.jpg"
+                    src="/image/tokutyou3.jpeg"
                     alt="スタッフの様子"
                     width={400}
                     height={300}
@@ -717,7 +706,7 @@ function MainComponent() {
                     { time: "9:30", activity: "掃除" },
                     { time: "9:45", activity: "朝礼" },
                     { time: "10:00", activity: "営業開始" },
-                    { time: "15:30", activity: "お昼ご飯" },
+                    { time: "15:30", activity: "お昼ご飯（随時順番に）" },
                     { time: "20:00", activity: "終礼" },
                     { time: "20:15", activity: "練習、帰宅" },
                   ].map((schedule, index) => (
@@ -971,11 +960,12 @@ function MainComponent() {
               <div className="md:w-1/3 flex flex-col items-center text-center">
                 <div className="w-40 h-40 md:w-64 md:h-64 overflow-hidden rounded-full border-4 border-white shadow-md mb-4">
                   <Image
-                    src="/image/roni.jpg"
+                    src="/image/kuwayama.jpeg"
                     alt="オーナーの写真"
                     width={500}
                     height={500}
                     className="w-full h-full object-cover"
+                    style={{ objectPosition: '50% 15%' }}
                     priority
                   />
                 </div>
@@ -1050,17 +1040,9 @@ function MainComponent() {
               </h3>
               <div className="flex flex-col space-y-4">
                 <div className="flex space-x-4">
+                  
                   <a 
-                    href="https://www.instagram.com/michill_hair/" 
-                    target="_blank" 
-                    rel="noopener noreferrer" 
-                    className="text-2xl hover:text-[#4a90e2]"
-                  >
-                    <i className="fab fa-instagram"></i>
-                    <span className="text-sm ml-2">サロン公式</span>
-                  </a>
-                  <a 
-                    href="https://www.instagram.com/rony_19795/" 
+                    href="https://www.instagram.com/vrai.masaki?igsh=YWc4MzQwdWF1M2s4&utm_source=qr" 
                     target="_blank" 
                     rel="noopener noreferrer" 
                     className="text-2xl hover:text-[#4a90e2]"
