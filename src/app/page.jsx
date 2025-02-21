@@ -461,7 +461,7 @@ function MainComponent() {
 
       <section className="py-16 md:py-24 mt-8 md:mt-12">
         <SectionHeader 
-          title="多くの美容師が抱える悩み事、当サロンでは一切致しません"
+          title="多くのブリーチ好き美容師が抱える悩み事、当サロンでは一切致しません"
           subtitle="現場で美容師を困らせがちな環境や課題"
         />
         <div className="max-w-6xl mx-auto px-4">
@@ -471,7 +471,7 @@ function MainComponent() {
               <h3 className="text-base md:text-xl font-bold text-center mb-3 md:mb-6 text-red-600">＜他店＞</h3>
               <div className="flex flex-col items-center gap-2 md:gap-4">
                 {[
-                  "「ブリーチは好き」なのに、髪質改善・白髪染めがメインで夢が遠のいていく💦",
+                  "「ブリーチが好き」なのに、髪質改善・白髪染めがメインで夢が遠のいていく💦",
                   "外部講習に通っても、サロンでは実践できずモチベーションが下がる日々💦",
                   "人間関係は良好で給料も安定...でも10年後も同じ技術のままで大丈夫？💦",
                   "東京のサロンに行きたい気持ちはあるけど、今の環境が心地よくて一歩が踏み出せない💦"
