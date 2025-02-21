@@ -617,7 +617,7 @@ function MainComponent() {
               <div className="flex flex-col md:flex-row gap-4 md:gap-6">
                 <div className="w-full md:w-[400px] flex-shrink-0">
                   <Image
-                    src="/image/tokutyou1.jpeg"
+                    src="/image/tokutyou4.jpeg"
                     alt="ブリーチ"
                     width={400}
                     height={300}
@@ -648,6 +648,7 @@ function MainComponent() {
                     width={400}
                     height={300}
                     className="w-full h-[400px] md:h-[300px] rounded-lg object-cover"
+                    style={{ objectPosition: '50% 20%' }}
                   />
                 </div>
                 <p className="text-base md:text-lg leading-relaxed">
