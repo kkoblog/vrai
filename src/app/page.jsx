@@ -10,7 +10,7 @@ const SectionHeader = ({ title, subtitle }) => (
     <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-center text-black">
       <span className="relative inline-block pb-4">
         {title}
-        <span className="absolute -bottom-2 left-0 w-full h-1 bg-[#D3B58D]"></span>
+        <span className="absolute -bottom-2 left-0 w-full h-1 bg-[#d4af37]"></span>
       </span>
     </h2>
     {subtitle && (
@@ -39,14 +39,20 @@ const SectionHeader2 = ({ title, subtitle }) => (
 // カラーパレットの定義
 const colors = {
   primary: {
-    bg: 'bg-[#f8f6f4]',      // ベースの明るいベージュ
-    text: 'text-[#4a4a4a]',  // ダークグレー
-    accent: 'bg-[#d4c3b7]',  // ライトブラウン
+    bg: 'bg-[#f5f5f7]',      // ベースのライトグレー
+    text: 'text-[#333333]',  // ダークグレー
+    accent: 'bg-[#c0c0c0]',  // シルバー
+    gold: 'bg-[#d4af37]',    // ゴールド（差し色）
   },
   secondary: {
-    light: 'bg-[#fdfbf9]',   // オフホワイト
-    border: 'border-[#e8e2dc]', // ライトベージュ
-    hover: 'hover:bg-[#f3efe9]', // ホバー時のベージュ
+    light: 'bg-[#ffffff]',   // ホワイト
+    border: 'border-[#e0e0e0]', // ライトグレーボーダー
+    hover: 'hover:bg-[#f0f0f0]', // ホバー時のグレー
+  },
+  cta: {
+    bg: 'bg-[#4a6da7]',      // ブルー系（メインカラーの反対色）
+    hover: 'hover:bg-[#3a5d97]', // ホバー時の濃いブルー
+    text: 'text-white',      // テキストは白
   }
 };
 
@@ -66,56 +72,7 @@ const InstagramEmbed = ({ url }) => {
 };
 
 // スタッフカードコンポーネントの作成
-const StaffCard = ({ image, name, position, message, instagramUrl }) => {
-  return (
-    <div className="bg-[#f5f5f5] p-4 md:p-8 rounded-xl shadow-sm">
-      <div className="bg-white/80 p-6 rounded-xl shadow-sm h-full flex flex-col">
-        <div className="flex items-center space-x-2 mb-4">
-          <i className="fas fa-quote-left text-[#D3B58D] text-xl"></i>
-          <span className="text-[#D3B58D] font-medium"></span>
-        </div>
-        
-        <div className="flex items-center mb-6">
-          <div className="w-24 h-24 md:w-28 md:h-28 overflow-hidden rounded-full border-4 border-white shadow-md mr-4 flex-shrink-0">
-            <Image
-              src={image}
-              alt={`スタッフ${name}`}
-              width={128}
-              height={128}
-              className="w-full h-full object-cover"
-            />
-          </div>
-          <div>
-            <p className="font-bold text-lg">{name}</p>
-            <p className="text-sm text-gray-600">{position}</p>
-          </div>
-        </div>
-        
-        <div className="space-y-4 mb-6">
-          <p className="text-gray-700">
-            {message}
-          </p>
-          
-          <p className="text-gray-700">
-            でも<span className="font-bold text-[#D3B58D]">michillでは</span>、
-            <span className="bg-[#D3B58D]/10 px-2 py-1 rounded inline-block mt-1">
-              スタッフが快く対応してくれ、お客様への連絡も代わりにしてくれます。
-            </span>
-          </p>
-          
-          <p className="text-gray-700">
-            お客様も子育て経験者が多く理解があるので、
-            <span className="border-b-2 border-[#D3B58D]">
-              ママでも安心して美容師を続けられています！
-            </span>
-          </p>
-        </div>
-        
-        <InstagramEmbed url={instagramUrl} />
-      </div>
-    </div>
-  );
-};
+
 
 // スライドショーコンポーネントを追加
 const ImageSlideshow = () => {
@@ -272,6 +229,12 @@ function MainComponent() {
     rootMargin: '-50px'
   });
 
+  const { ref: featuresContentRef, inView: featuresContentInView } = useInView({
+    triggerOnce: true,
+    threshold: 0.1,
+    rootMargin: '-50px'
+  });
+
   const RequirementSection = () => {
     const requirements = [
       {
@@ -303,7 +266,7 @@ function MainComponent() {
     });
 
     return (
-      <section className="py-16 md:py-24 bg-gradient-to-r from-[#D3B58D]/10 to-[#D3B58D]/5">
+      <section className="py-16 md:py-24 bg-gradient-to-r from-[#f5f5f7]/10 to-[#f5f5f7]/5">
         <SectionHeader 
           title="求める人材"
           subtitle="私たちと一緒に働きませんか？"
@@ -326,7 +289,7 @@ function MainComponent() {
                 <div className="flex items-start space-x-4">
                   <div className="flex-shrink-0 mt-1">
                     <div className="w-6 h-6 bg-[#D3B58D]/20 rounded-full flex items-center justify-center">
-                      <span className="text-black text-sm font-medium">
+                      <span className="text-[#d4af37] text-sm font-medium">
                         {index + 1}
                       </span>
                     </div>
@@ -370,10 +333,12 @@ function MainComponent() {
 
           <div className="flex flex-col sm:flex-row gap-4 items-center justify-center mt-12">
             <Link 
-              href="/contact" 
-              className="bg-[#e24a4a] text-white px-6 py-3 rounded-full hover:bg-[#bd3535] transition duration-300 text-sm sm:text-base sm:px-8 w-fit mx-auto sm:mx-0"
+              href="https://lin.ee/CpuShhx" 
+              className="bg-[#4a6da7] text-white px-6 py-3 rounded-full hover:bg-[#3a5d97] transition duration-300 text-sm sm:text-base sm:px-8 w-fit mx-auto sm:mx-0"
+              target="_blank"
+              rel="noopener noreferrer"
             >
-              応募する
+              今すぐ応募する
             </Link>
             
           </div>
@@ -390,7 +355,7 @@ function MainComponent() {
   });
 
   return (
-    <div className="font-noto-sans relative">
+    <div className="font-noto-sans relative bg-[#f5f5f7]">
       <header className="bg-[#fafafa] py-8 md:py-16 px-4 overflow-hidden">
         <div className="max-w-6xl mx-auto text-center">
           
@@ -447,16 +412,22 @@ function MainComponent() {
 
       
 
-      <div className="flex flex-col sm:flex-row gap-4 items-center justify-center mt-8">
-        <Link 
-          href="/contact" 
-          className="bg-[#e24a4a] text-white px-6 py-3 rounded-full hover:bg-[#bd3535] transition duration-300 text-sm sm:text-base sm:px-8 w-fit mx-auto sm:mx-0"
-        >
-          応募する
-        </Link>
-        <button className="bg-[#06c755] text-white px-6 py-3 rounded-full hover:bg-[#059144] transition duration-300 text-sm sm:text-base sm:px-8 w-fit mx-auto sm:mx-0">
-          代表MASAKIからのメッセージを見る
-        </button>
+      <div className="bg-gradient-to-r from-[#f5f5f7]/80 to-[#f5f5f7]/50 p-6 md:p-8 relative overflow-hidden">
+        <div className="absolute inset-0 bg-white/50"></div>
+        
+        <div className="relative z-10 flex flex-col gap-4 items-center justify-center">
+          <Link 
+            href="https://lin.ee/CpuShhx" 
+            className="bg-[#4a6da7] text-white px-6 py-3 rounded-full hover:bg-[#3a5d97] transition duration-300 text-sm sm:text-base sm:px-8 w-fit"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            今すぐ応募する
+          </Link>
+          <button className="bg-[#06c755] text-white px-6 py-3 rounded-full hover:bg-[#059144] transition duration-300 text-sm sm:text-base sm:px-8 w-fit">
+            代表MASAKIからのメッセージを見る
+          </button>
+        </div>
       </div>
 
       <section className="py-16 md:py-24 mt-8 md:mt-12">
@@ -513,91 +484,92 @@ function MainComponent() {
         </div>
       </section>
 
-      <div className="mt-4 bg-gradient-to-r from-[#D3B58D]/10 to-[#D3B58D]/5 rounded-3xl p-6 md:p-8 relative overflow-hidden">
+      <div className="mt-4 bg-gradient-to-r from-[#f5f5f7]/80 to-[#f5f5f7]/50 p-6 md:p-8 relative overflow-hidden">
         <div className="absolute inset-0 bg-white/50"></div>
         
         <div className="relative z-10">
-          <h3 className="text-xl md:text-3xl font-bold text-center mb-6">
-            <span className="text-[#D3B58D]">vraiの特徴</span>
-            <br className="md:hidden" />
-          </h3>
+        <SectionHeader 
+          title="vraiの特徴"っs
+          
+        />
 
-         
-<div className="mt-8 md:mt-12 px-4 max-w-6xl mx-auto">
-  <div 
-    className={`max-w-lg mx-auto transition-all duration-1000 ${
-      featuresInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-    }`}
-  >
-    <ImageSlideshow />
-  </div>
-</div>
-
-          <br />
+          <div className="mt-8 md:mt-12 px-4 max-w-6xl mx-auto">
+            <div 
+              ref={featuresRef}
+              className={`max-w-lg mx-auto transition-all duration-1000 ${
+                featuresInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+              }`}
+            >
+              <ImageSlideshow />
+            </div>
+          </div>
 
           <div 
-            ref={featuresRef}
+            ref={featuresContentRef}
             className="text-base md:text-xl leading-relaxed text-center max-w-3xl mx-auto space-y-6"
           >
             <div 
               className={`bg-white rounded-lg p-6 shadow-md border border-[#D3B58D]/20 hover:shadow-lg transition-all duration-700 ${
-                featuresInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+                featuresContentInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
               }`}
               style={{ transitionDelay: '100ms' }}
             >
-              <span className="text-[#D3B58D] font-bold text-lg">①</span>
-              バレイヤージュ・ハイライト特化で平均26,000円高単価
+              <div>
+                <span className="text-[#d4af37] font-bold text-lg">①</span>
+                バレイヤージュ・ハイライト特化で平均26,000円高単価
+              </div>
               <br />
-              <br />
-              <span className="text-gray-700 text-sm md:text-base">
+              <div className="text-gray-700 text-sm md:text-base">
                 高度な技術と丁寧な施術で
                 <br />
                 お客様に高い満足度を提供できます
-              </span>
+              </div>
             </div>
-
+            
             <div 
               className={`bg-white rounded-lg p-6 shadow-md border border-[#D3B58D]/20 hover:shadow-lg transition-all duration-700 ${
-                featuresInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+                featuresContentInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
               }`}
               style={{ transitionDelay: '300ms' }}
             >
-              <span className="text-[#D3B58D] font-bold text-lg">②</span>
-              東京でやっている技術が名古屋の金山で学べる
+              <div>
+                <span className="text-[#d4af37] font-bold text-lg">②</span>
+                東京でやっている技術が名古屋の金山で学べる
+              </div>
               <br />
-              <br />
-              <span className="text-gray-700 text-sm md:text-base">
+              <div className="text-gray-700 text-sm md:text-base">
                 最新のトレンドと高度な技術を
                 <br />
                 地元名古屋で習得することができます
-              </span>
+              </div>
             </div>
 
             <div 
               className={`bg-white rounded-lg p-6 shadow-md border border-[#D3B58D]/20 hover:shadow-lg transition-all duration-700 ${
-                featuresInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+                featuresContentInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
               }`}
               style={{ transitionDelay: '500ms' }}
             >
-              <span className="text-[#D3B58D] font-bold text-lg">③</span>
-              自分の技術を評価してくれるお客様がついてくれる
+              <div>
+                <span className="text-[#d4af37] font-bold text-lg">③</span>
+                自分の技術を評価してくれるお客様がついてくれる
+              </div>
               <br />
-              <br />
-              <span className="text-gray-700 text-sm md:text-base">
+              <div className="text-gray-700 text-sm md:text-base">
                 技術力を正当に評価され
                 <br />
                 あなたの担当でないと嫌だと言ってもらえる
                 <br />
                 そんな信頼関係を築くことができます
-              </span>
+              </div>
             </div>
           </div>
         </div>
       </div>
 
-      <section className="py-16 md:py-24 bg-gradient-to-r from-[#D3B58D]/10 to-[#D3B58D]/5">
+      <section className="py-16 md:py-24 bg-gradient-to-r from-[#f5f5f7]/20 to-[#f5f5f7]/10" id="qa" ref={qaRef}>
         <SectionHeader 
-          title="vraiで働くことで得られる事"
+          title="vraiで働くことで得られる事"っs
           subtitle="あなたらしい働き方"
         />
         <div className="max-w-6xl mx-auto px-4">
@@ -624,10 +596,10 @@ function MainComponent() {
                     className="w-full h-[400px] md:h-[300px] rounded-lg object-cover"
                   />
                 </div>
-                <p className="text-base md:text-lg leading-relaxed">
-                  当サロンでは、オーナー自らが10年以上かけて培ったブリーチワークの技術を、体系的に学ぶことができます。東京の有名サロンに通わなくても、名古屋で最先端の技術を習得できる環境を整えています<br /><br />
+                <div className="text-base md:text-lg leading-relaxed">
+                  当サロンでは、オーナー自らが10年以上かけて培ったブリーチワークの技術を、体系的に学ぶことができます。東京の有名サロンに行きなくても、名古屋で最先端の技術を習得できる環境を整えています<br /><br />
                   実際の施術では、サロンのブリーチ施術率が80%を超えているため、学んだ技術を即座に実践できます。理論だけでなく、実践を通じて確実にスキルアップを図ることができます<br /><br />
-                </p>
+                </div>
               </div>
             </div>
 
@@ -638,7 +610,7 @@ function MainComponent() {
               style={{ transitionDelay: '200ms' }}
             >
               <h3 className="text-2xl mb-4 font-bold">
-                「あなた以外は嫌だと」お客様に言っていただけます
+                「あなた以外は嫌だ」お客様に言っていただけます
               </h3>
               <div className="flex flex-col md:flex-row gap-4 md:gap-6">
                 <div className="w-full md:w-[400px] flex-shrink-0">
@@ -651,11 +623,11 @@ function MainComponent() {
                     style={{ objectPosition: '50% 20%' }}
                   />
                 </div>
-                <p className="text-base md:text-lg leading-relaxed">
+                <div className="text-base md:text-lg leading-relaxed">
                   お客様から「あなた以外は嫌だ」と言っていただけることで、あなたの技術や接客が正当に評価され、
                   固定客として長期的な信頼関係を築くことができます。これにより、安定した収入が見込め、
                   キャリアの選択肢も広がります
-                </p>
+                </div>
               </div>
             </div>
 
@@ -678,11 +650,11 @@ function MainComponent() {
                     className="w-full h-[400px] md:h-[300px] rounded-lg object-cover"
                   />
                 </div>
-                <p className="text-base md:text-lg leading-relaxed">
+                <div className="text-base md:text-lg leading-relaxed">
                 高度な技術力を身につけることで、
                   業務委託や面貸し、独立開業など、どのような環境でも
                   活躍できる実力が身につきます
-                </p>
+                </div>
               </div>
             </div>
           </div>
@@ -693,12 +665,10 @@ function MainComponent() {
                 contentInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
               }`}
             >
-              <h3 className="text-2xl mb-6 font-bold text-center">
-                <span className="relative inline-block">
-                  現場仕事の日のとある1日
-                  <span className="absolute -bottom-2 left-0 w-full h-1 bg-[#D3B58D]/30"></span>
-                </span>
-              </h3>
+              <SectionHeader 
+          title="現場仕事の日のとある1日"っs
+          
+        />
               
               <div className="max-w-2xl mx-auto">
                 <div className="space-y-4">
@@ -716,7 +686,7 @@ function MainComponent() {
                       className="flex items-center gap-6 p-4 hover:bg-[#D3B58D]/5 rounded-lg transition-colors duration-300"
                     >
                       <div className="w-24 flex-shrink-0">
-                        <span className="font-bold text-[#D3B58D]">{schedule.time}</span>
+                        <span className="font-bold text-[#c0c0c0]">{schedule.time}</span>
                       </div>
                       <div className="flex-grow">
                         <span className="text-gray-700">{schedule.activity}</span>
@@ -732,10 +702,12 @@ function MainComponent() {
 
           <div className="flex flex-col sm:flex-row gap-4 items-center justify-center mt-12">
             <Link 
-              href="/contact" 
-              className="bg-[#e24a4a] text-white px-6 py-3 rounded-full hover:bg-[#bd3535] transition duration-300 text-sm sm:text-base sm:px-8 w-fit mx-auto sm:mx-0"
+              href="https://lin.ee/CpuShhx" 
+              className="bg-[#4a6da7] text-white px-6 py-3 rounded-full hover:bg-[#3a5d97] transition duration-300 text-sm sm:text-base sm:px-8 w-fit mx-auto sm:mx-0"
+              target="_blank"
+              rel="noopener noreferrer"
             >
-              応募する
+              今すぐ応募する
             </Link>
             
           </div>
@@ -746,154 +718,157 @@ function MainComponent() {
 
     
 
-<section className="py-16 md:py-24 bg-gradient-to-r from-[#D3B58D]/10 to-[#D3B58D]/5">
-  <SectionHeader 
-    title="募集要項"
-    subtitle="採用情報"
-  />
-  <div className="max-w-6xl mx-auto px-4">
-    <div className="bg-white rounded-lg shadow-lg overflow-hidden">
-      {[
-        {
-          title: "勤務地",
-          content: "愛知県名古屋市中区平和１-２２-５ パルティール金山アネックス１F"
-        },
-        {
-          title: "雇用形態",
-          content: "正社員"
-        },
-        {
-          title: "職種・給与",
-          content: (
-            <div className="space-y-8">
-              <div>
-                <p className="font-medium text-lg border-b-2 border-[#D3B58D] pb-2 mb-4">アシスタント</p>
-                <div className="space-y-4">
-                  <div>
-                    <p className="font-medium text-gray-800">月給 21万円 ~ 25万円</p>
-                    <p className="text-sm text-gray-600">※試用期間6ヶ月：月給20万円</p>
-                  </div>
-                  <div className="space-y-2">
-                    <p className="font-medium text-gray-800">各種手当</p>
-                    <ul className="list-none space-y-2 text-gray-600">
-                      <li className="flex items-start">
-                        <span className="text-[#D3B58D] mr-2">✓</span>
-                        <span><strong>店販手当</strong>：売上額の10％を支給</span>
-                      </li>
-                      <li className="flex items-start">
-                        <span className="text-[#D3B58D] mr-2">✓</span>
-                        <span><strong>生産性手当</strong>：生産性に応じて支給（月90万円～/1万円、80万円/6,000円）※スタッフ人数により変動</span>
-                      </li>
-                      <li className="flex items-start">
-                        <span className="text-[#D3B58D] mr-2">✓</span>
-                        <span><strong>売上手当</strong>：月間売上に応じて支給<br />
-                        ・80万円：10%<br />
-                        ・100万円：12～15%<br />
-                        ・200万円：25～30%</span>
-                      </li>
-                      <li className="flex items-start">
-                        <span className="text-[#D3B58D] mr-2">✓</span>
-                        <span><strong>管理手当</strong>：備品や在庫管理、他スタッフへの指示等に応じて支給（月上限2万円）</span>
-                      </li>
-                      <li className="flex items-start">
-                        <span className="text-[#D3B58D] mr-2">✓</span>
-                        <span><strong>ブログ手当</strong>：サロンサイト・インスタ等の投稿1件につき100円</span>
-                      </li>
-                      <li className="flex items-start">
-                        <span className="text-[#D3B58D] mr-2">✓</span>
-                        <span><strong>口コミ手当</strong>：1件につき500円（Googleビジネスプロフィール含む）</span>
-                      </li>
-                    </ul>
+<section className="py-16 md:py-24 bg-gradient-to-r from-[#f5f5f7]/80 to-[#f5f5f7]/50 p-6 md:p-8 relative overflow-hidden">
+  <div className="absolute inset-0 bg-white/50"></div>
+  <div className="relative z-10">
+    <SectionHeader 
+      title="募集要項"
+      subtitle="採用情報"
+    />
+    <div className="max-w-6xl mx-auto px-4">
+      <div className="bg-white rounded-lg shadow-lg overflow-hidden">
+        {[
+          {
+            title: "勤務地",
+            content: "愛知県名古屋市中区平和１-２２-５ パルティー尔金山アネックス１F"
+          },
+          {
+            title: "雇用形態",
+            content: "正社員"
+          },
+          {
+            title: "職種・給与",
+            content: (
+              <div className="space-y-8">
+                <div>
+                  <p className="font-medium text-lg border-b-2 border-[#d4af37] pb-2 mb-4">アシスタント</p>
+                  <div className="space-y-4">
+                    <div>
+                      <p className="font-medium text-[#333333]">月給 21万円 ~ 25万円</p>
+                      <p className="text-sm text-gray-600">※試用期間6ヶ月：月給20万円</p>
+                    </div>
+                    <div className="space-y-2">
+                      <p className="font-medium text-[#333333]">各種手当</p>
+                      <ul className="list-none space-y-2 text-gray-600">
+                        <li className="flex items-start">
+                          <span className="text-[#d4af37] mr-2">✓</span>
+                          <span><strong>店販手当</strong>：売上額の10％を支給</span>
+                        </li>
+                        <li className="flex items-start">
+                          <span className="text-[#d4af37] mr-2">✓</span>
+                          <span><strong>生産性手当</strong>：生産性に応じて支給（月90万円～/1万円、80万円/6,000円）※スタッフ人数により変動</span>
+                        </li>
+                        <li className="flex items-start">
+                          <span className="text-[#d4af37] mr-2">✓</span>
+                          <span><strong>売上手当</strong>：月間売上に応じて支給<br />
+                          ・80万円：10%<br />
+                          ・100万円：12～15%<br />
+                          ・200万円：25～30%</span>
+                        </li>
+                        <li className="flex items-start">
+                          <span className="text-[#d4af37] mr-2">✓</span>
+                          <span><strong>管理手当</strong>：備品や在庫管理、他スタッフへの指示等に応じて支給（月上限2万円）</span>
+                        </li>
+                        <li className="flex items-start">
+                          <span className="text-[#d4af37] mr-2">✓</span>
+                          <span><strong>ブログ手当</strong>：サロンサイト・インスタ等の投稿1件につき100円</span>
+                        </li>
+                        <li className="flex items-start">
+                          <span className="text-[#d4af37] mr-2">✓</span>
+                          <span><strong>口コミ手当</strong>：1件につき500円（Googleビジネスプロフィール含む）</span>
+                        </li>
+                      </ul>
+                    </div>
                   </div>
                 </div>
-              </div>
 
-              <div>
-                <p className="font-medium text-lg border-b-2 border-[#D3B58D] pb-2 mb-4">スタイリスト</p>
-                <div className="space-y-4">
-                  <div>
-                    <p className="font-medium text-gray-800">月給 22万円 ~ 100万円</p>
-                    <p className="text-sm text-gray-600">例）技術売上80万円の場合：基本給＋生産性手当＋技術手当＋etc＝32万円～</p>
-                  </div>
-                  <div className="space-y-2">
-                    <p className="font-medium text-gray-800">キャリアパスと昇給</p>
-                    <p className="text-gray-600">フリー入客start → 平均指名50名player → 店長 と段階的に基本給UP</p>
-                  </div>
-                  <div className="space-y-2">
-                    <p className="font-medium text-gray-800">各種手当</p>
-                    <ul className="list-none space-y-2 text-gray-600">
-                      <li className="flex items-start">
-                        <span className="text-[#D3B58D] mr-2">✓</span>
-                        <span><strong>店販手当</strong>：売上額の10％を支給</span>
-                      </li>
-                      <li className="flex items-start">
-                        <span className="text-[#D3B58D] mr-2">✓</span>
-                        <span><strong>生産性手当</strong>：生産性に応じて支給（月90万円～/1万円、80万円/6,000円）※スタッフ人数により変動</span>
-                      </li>
-                      <li className="flex items-start">
-                        <span className="text-[#D3B58D] mr-2">✓</span>
-                        <span><strong>売上手当</strong>：月間売上に応じて支給<br />
-                        ・80万円：10%<br />
-                        ・100万円：12～15%<br />
-                        ・200万円：25～30%</span>
-                      </li>
-                      <li className="flex items-start">
-                        <span className="text-[#D3B58D] mr-2">✓</span>
-                        <span><strong>管理手当</strong>：備品や在庫管理、他スタッフへの指示等に応じて支給（月上限2万円）</span>
-                      </li>
-                      <li className="flex items-start">
-                        <span className="text-[#D3B58D] mr-2">✓</span>
-                        <span><strong>ブログ手当</strong>：サロンサイト・インスタ等の投稿1件につき100円</span>
-                      </li>
-                      <li className="flex items-start">
-                        <span className="text-[#D3B58D] mr-2">✓</span>
-                        <span><strong>口コミ手当</strong>：1件につき500円（Googleビジネスプロフィール含む）</span>
-                      </li>
-                    </ul>
+                <div>
+                  <p className="font-medium text-lg border-b-2 border-[#d4af37] pb-2 mb-4">スタイリスト</p>
+                  <div className="space-y-4">
+                    <div>
+                      <p className="font-medium text-[#333333]">月給 22万円 ~ 100万円</p>
+                      <p className="text-sm text-gray-600">例）技術売上80万円の場合：基本給＋生産性手当＋技術手当＋etc＝32万円～</p>
+                    </div>
+                    <div className="space-y-2">
+                      <p className="font-medium text-[#333333]">キャリアパスと昇給</p>
+                      <p className="text-gray-600">フリー入客start → 平均指名50名player → 店長 と段階的に基本給UP</p>
+                    </div>
+                    <div className="space-y-2">
+                      <p className="font-medium text-[#333333]">各種手当</p>
+                      <ul className="list-none space-y-2 text-gray-600">
+                        <li className="flex items-start">
+                          <span className="text-[#d4af37] mr-2">✓</span>
+                          <span><strong>店販手当</strong>：売上額の10％を支給</span>
+                        </li>
+                        <li className="flex items-start">
+                          <span className="text-[#d4af37] mr-2">✓</span>
+                          <span><strong>生産性手当</strong>：生産性に応じて支給（月90万円～/1万円、80万円/6,000円）※スタッフ人数により変動</span>
+                        </li>
+                        <li className="flex items-start">
+                          <span className="text-[#d4af37] mr-2">✓</span>
+                          <span><strong>売上手当</strong>：月間売上に応じて支給<br />
+                          ・80万円：10%<br />
+                          ・100万円：12～15%<br />
+                          ・200万円：25～30%</span>
+                        </li>
+                        <li className="flex items-start">
+                          <span className="text-[#d4af37] mr-2">✓</span>
+                          <span><strong>管理手当</strong>：備品や在庫管理、他スタッフへの指示等に応じて支給（月上限2万円）</span>
+                        </li>
+                        <li className="flex items-start">
+                          <span className="text-[#d4af37] mr-2">✓</span>
+                          <span><strong>ブログ手当</strong>：サロンサイト・インスタ等の投稿1件につき100円</span>
+                        </li>
+                        <li className="flex items-start">
+                          <span className="text-[#d4af37] mr-2">✓</span>
+                          <span><strong>口コミ手当</strong>：1件につき500円（Googleビジネスプロフィール含む）</span>
+                        </li>
+                      </ul>
+                    </div>
                   </div>
                 </div>
               </div>
+            )
+          },
+          {
+            title: "試用期間",
+            content: "試用期間あり"
+          },
+          {
+            title: "待遇・福利厚生",
+            content: (
+              <div className="space-y-4">
+                <ul className="list-disc list-inside space-y-2 text-gray-600">
+                  <li>社会保険完備（雇用保険・労災保険・健康保険・厚生年金）</li>
+                  <li>交通費規定支給（上限1万円/月）</li>
+                </ul>
+                <p className="text-sm text-gray-500">※試用期間あり（技術レベルによる）</p>
+              </div>
+            )
+          }
+        ].map((item, index) => (
+          <div 
+            key={index}
+            className={`flex flex-col md:flex-row border-b border-gray-100 ${
+              index % 2 === 0 ? 'bg-white' : 'bg-gray-50'
+            }`}
+          >
+            <div className="w-full md:w-1/4 p-4 md:p-6 bg-[#c0c0c0]">
+              <h4 className="font-bold text-[#333333]">{item.title}</h4>
             </div>
-          )
-        },
-        {
-          title: "試用期間",
-          content: "試用期間あり"
-        },
-        {
-          title: "待遇・福利厚生",
-          content: (
-            <div className="space-y-4">
-              <ul className="list-disc list-inside space-y-2 text-gray-600">
-                <li>社会保険完備（雇用保険・労災保険・健康保険・厚生年金）</li>
-                <li>交通費規定支給（上限1万円/月）</li>
-              </ul>
-              <p className="text-sm text-gray-500">※試用期間あり（技術レベルによる）</p>
+            <div className="w-full md:w-3/4 p-4 md:p-6">
+              {typeof item.content === 'string' ? (
+                <p className="text-gray-600">{item.content}</p>
+              ) : (
+                item.content
+              )}
             </div>
-          )
-        }
-      ].map((item, index) => (
-        <div 
-          key={index}
-          className={`flex flex-col md:flex-row border-b border-gray-100 ${
-            index % 2 === 0 ? 'bg-white' : 'bg-gray-50'
-          }`}
-        >
-          <div className="w-full md:w-1/4 p-4 md:p-6 bg-[#D3B58D]/5">
-            <h4 className="font-bold text-gray-800">{item.title}</h4>
           </div>
-          <div className="w-full md:w-3/4 p-4 md:p-6">
-            {typeof item.content === 'string' ? (
-              <p className="text-gray-600">{item.content}</p>
-            ) : (
-              item.content
-            )}
-          </div>
-        </div>
-      ))}
+        ))}
+      </div>
+
+      
     </div>
-
-    
   </div>
 </section>
 
@@ -901,12 +876,14 @@ function MainComponent() {
 
       <RequirementSection />
 
-      <section className="py-16 md:py-24" id="qa" ref={qaRef}>
-        <SectionHeader 
-          title="よくあるご質問"
-          subtitle="Q&A"
-        />
-        <div className="max-w-6xl mx-auto px-4">
+      <section className="py-16 md:py-24 bg-gradient-to-r from-[#f5f5f7]/80 to-[#f5f5f7]/50 p-6 md:p-8 relative overflow-hidden" id="qa" ref={qaRef}>
+        <div className="absolute inset-0 bg-white/50"></div>
+        <div className="relative z-10">
+          <SectionHeader 
+            title="よくあるご質問"
+            subtitle="Q&A"
+          />
+          <div className="max-w-6xl mx-auto px-4"></div>
           <div className="space-y-4">
             {[
               {
@@ -929,17 +906,17 @@ function MainComponent() {
                 }`}
                 style={{ transitionDelay: `${index * 150}ms` }}
               >
-                <summary className="text-lg md:text-xl font-medium cursor-pointer list-none flex justify-between items-center text-gray-800">
+                <summary className="text-lg md:text-xl font-medium cursor-pointer list-none flex justify-between items-center text-[#333333]">
                   <span className="flex items-center gap-3">
-                    <span className="text-[#D3B58D]">Q.</span>
+                    <span className="text-[#d4af37]">Q.</span>
                     {qa.question}
                   </span>
-                  <span className="transform group-open:rotate-180 transition-transform duration-300 text-[#D3B58D]">
+                  <span className="transform group-open:rotate-180 transition-transform duration-300 text-[#d4af37]">
                     ▼
                   </span>
                 </summary>
                 <div className="mt-4 pl-6 text-gray-600 leading-relaxed">
-                  <span className="text-[#D3B58D] font-medium">A.</span>
+                  <span className="text-[#d4af37] font-medium">A.</span>
                   <span className="ml-2">{qa.answer}</span>
                 </div>
               </details>
@@ -950,7 +927,7 @@ function MainComponent() {
         </div>
       </section>
 
-      <section className="py-12 md:py-24 bg-gradient-to-r from-[#D3B58D]/10 to-[#D3B58D]/5">
+      <section className="py-12 md:py-24 bg-gradient-to-r from-[#f5f5f7]/10 to-[#f5f5f7]/5">
         <SectionHeader 
           title="オーナー挨拶"
           subtitle="Message from Owner"
@@ -976,54 +953,52 @@ function MainComponent() {
               
               <div className="md:w-2/3">
                 <div className="prose prose-sm md:prose-lg max-w-none">
-                  <p className="space-y-6 md:space-y-8">
-                    <span className="block mb-6 text-gray-800 text-[15px] md:text-lg leading-relaxed tracking-wide px-2 md:px-0">
+                  <div className="space-y-6 md:space-y-8">
+                    <div className="block mb-6 text-[#333333] text-[15px] md:text-lg leading-relaxed tracking-wide px-2 md:px-0">
                       入社してまもない頃にブリーチデザインにハマりました。僕は今のお店をオープンするまで10年間人間としても美容師としても尊敬できるオーナーのもとで働いていました。
                       <br /><br />
-                      ですがその時代は今ほど明るい髪色を好む方も少なく、学ぶ機会も実践する場もほとんどありませんでした。サロンはとてもいいお客さんが多く楽しい毎日でしたがブリーチをするお客さんはその当時、月に数えるほどでした。
+                      ですがその時代は今ほど明るい髪色を好む方も少なく、学ぶ機会も実践する場もほとんでした。サロンはとてもいいお客さんが多く楽しい毎日でしたがブリーチをするお客さんはその当時、月に数えるほどでした。
                       <br /><br />
                       なのでたくさんのお金と時間を使い外部に講習に行く毎日でした。夜行バスに乗って東京に行くなんてよくある話でした。もちろん全てが身を結ぶことなんてなかっです。
-                    </span>
+                    </div>
 
-                    <span className="block mb-6 text-gray-800 text-[15px] md:text-lg leading-relaxed tracking-wide px-2 md:px-0">
+                    <div className="block mb-6 text-[#333333] text-[15px] md:text-lg leading-relaxed tracking-wide px-2 md:px-0">
                       学んだことを実践してもそこから出てくる新しい疑問を解消するためにまた講習に出てのいたちごっこ。
                       <br /><br />
                       ハイトーンの集客なんてもちろん全部自分でやるしかなかったです笑
                       なんとかやりたい事を貫き大好きだったサロンに少しの恩は返せたかな？って頃に今のお店をオープンしました！
-                    </span>
+                    </div>
 
-                    <span className="block mb-6 text-gray-800 text-[15px] md:text-lg leading-relaxed tracking-wide px-2 md:px-0">
+                    <div className="block mb-6 text-[#333333] text-[15px] md:text-lg leading-relaxed tracking-wide px-2 md:px-0">
                       ですが近年ではデビューまで2年、働き方の改革（業務委託、面貸し）、サロンの専門化などでこんな僕みたいな美容師人生を送るにはとてもよいオーナーの元にいるか、鬼のメンタルがいります笑
                       <br /><br />
                       僕の時代は根性論だったのでまわりもそんな感じでした笑
                       そんな経験から僕はこれからブリーチワークをする子たちに1秒でも早い成長、1円でも多く自分に使えるお金を与えたいなと思います。
-                    </span>
+                    </div>
 
-                    <span className="block mb-6 text-gray-800 text-[15px] md:text-lg leading-relaxed tracking-wide px-2 md:px-0">
+                    <div className="block mb-6 text-[#333333] text-[15px] md:text-lg leading-relaxed tracking-wide px-2 md:px-0">
                       ブリーチにあまり触れないし、東京みたいなガチガチの都心サロンじゃなかったからこそ得る事ができたノウハウがありますし。また昔の僕と同じ環境で働いている子たちの悩みを解決してあげれると思います。
                       <br /><br />
                       この業界はまだまだ美容師の価値が低く、技術があるのに評価されない、適切な単価を頂けない美容師で溢れています。
-                    </span>
+                    </div>
 
-                    <span className="block mb-6 text-gray-800 text-[15px] md:text-lg leading-relaxed tracking-wide px-2 md:px-0">
+                    <div className="block mb-6 text-[#333333] text-[15px] md:text-lg leading-relaxed tracking-wide px-2 md:px-0">
                       <div className="bg-gray-50 p-4 rounded-lg space-y-2">
-                        <p>◦ 仕事は好きだけど何の為に働いているのかわからない</p>
-                        <p>◦ 自分には無理だった</p>
-                        <p>◦ 東京行きたいけど諦めて名古屋にいる</p>
+                        <div>◦ 仕事は好きだけど何の為に働いているのかわからない</div>
+                        <div>◦ 自分には無理だった</div>
+                        <div>◦ 東京行きたいけど諦めて名古屋にいる</div>
                       </div>
-                    </span>
+                    </div>
 
-                    <span className="block text-gray-800 text-[15px] md:text-lg leading-relaxed tracking-wide px-2 md:px-0">
+                    <div className="block text-[#333333] text-[15px] md:text-lg leading-relaxed tracking-wide px-2 md:px-0">
                       こうゆう方達を1人でも救いたいです。あなたの技術を好きになってくれて、一生評価してくれるお客様を1人でも多く付けてあげたい。
                       <br /><br />
                       努力が報われる瞬間、あなたしかいないと評価される瞬間はこの仕事をしていて1番美容師になって良かったと思える瞬間です。
                       <br /><br />
                       まずはやりたいと思う事が全ての始まりです、怖がらずにまずは僕に相談することから始めてみませんか！
-                    </span>
-                  </p>
+                    </div>
+                  </div>
                 </div>
-                
-                
               </div>
             </div>
           </div>
@@ -1057,7 +1032,7 @@ function MainComponent() {
             </div>
             <div>
               <h3 className="text-xl mb-4">店舗情報</h3>
-              <p>住所：〒460-0021 愛知県名古屋市中区平和１-２２-５ パルティール金山アネックス１F</p>
+              <p>住所：〒460-0021 愛知県名古屋市中区平和１-２２-５ パルティー尔金山アネックス１F</p>
               <p>電話：052-322-6363</p>
               <p>営業時間：火～金 10:00-21:00 / 土 10:00-20:30 / 日 10:00-20:00</p>
               <p>定休日：月曜日、不定休（火曜、日曜）</p>
@@ -1081,7 +1056,7 @@ function MainComponent() {
       {/* トップへ戻るボタン */}
       <button
         onClick={scrollToTop}
-        className={`fixed bottom-4 right-4 z-40 bg-gray-700 text-white w-12 h-12 rounded-full shadow-lg flex items-center justify-center hover:bg-gray-600 transition-all duration-300 ${
+        className={`fixed bottom-4 right-4 z-40 bg-[#4a6da7] text-white w-12 h-12 rounded-full shadow-lg flex items-center justify-center hover:bg-[#3a5d97] transition-all duration-300 ${
           showScrollTop ? 'opacity-100 visible' : 'opacity-0 invisible'
         }`}
         aria-label="トップへ戻る"
@@ -1121,7 +1096,7 @@ const styles = {
     after:-translate-x-1/2
     after:w-12
     after:h-1
-    after:bg-rose-400
+    after:bg-[#d4af37]
   `,
 };
 
